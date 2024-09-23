@@ -140,6 +140,24 @@ flash_backfit <- function(flash,
 
     kset <- get.next.kset(method, kset, conv.crit, tol)
 
+    available_cols <- 1:ncol(flash$EF[[1]])
+
+    for (i in  1:ncol(flash$EF[[1]])) {
+      # Find the column (from available columns) with the largest absolute value in row i
+      remaining_cols <- available_cols[!is.na(available_cols)]
+      max_col <- remaining_cols[which.max(abs(flash$EF[[1]][i, remaining_cols]))]
+
+      # Store the chosen column in the permutation vector
+      kset[i] <- max_col
+
+      # Remove the chosen column from the available columns
+      available_cols[available_cols == max_col] <- NA
+    }
+
+
+
+    print(kset)
+
     if (!(method %in% c("parallel", "extrapolate")))  {
       for (k in kset) {
         old.f <- flash
@@ -264,6 +282,8 @@ check.parallel.ok <- function(flash, kset) {
 }
 
 get.next.kset <- function(method, kset, conv.crit, tol) {
+
+
   if (method == "random") {
     kset <- sample(kset)
   } else if (method == "montaigne") {

@@ -1,4 +1,4 @@
-Package: flashier
+Package: wdflashier
 Type: Package
 Date: 2024-05-06
 Title: Empirical Bayes Matrix Factorization
