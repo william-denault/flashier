@@ -29,6 +29,8 @@ fit_without_perm <- flashier:: flash_init(gtex
   flash_backfit( )
 
 
+save(fit_with_perm, file ="fit_with_perm.RData")
+save(fit_without_perm, file ="fit_without_perm.RData")
 fit_with_perm$elbo
 
 fit_without_perm$elbo
@@ -41,13 +43,13 @@ p2 <- plot(
   pm_which = "factors",
   pm_colors = gtex_colors,
   include_scree = FALSE
-) + ggtitle("With SFS perm ")
+) + ggtitle("With had hoc permutation")
 p3 <- plot(
   fit_without_perm,
   pm_which = "factors",
   pm_colors = gtex_colors,
   include_scree = FALSE
-) + ggtitle("Without SFS perm current implementation ")
+) + ggtitle("Without had hoc permutation")
 plot_grid( p2,p3 ,ncol = 2)
 
 fit_with_perm$elbo
