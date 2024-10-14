@@ -143,6 +143,7 @@ solve.ebnm <- function(factor, n, flash, output = default.ebnm.output) {
   }
 
   if (identical(output, default.ebnm.output)) {
+
     ebnm.res$KL <- (ebnm.res$log_likelihood
                     - normal.means.loglik(ebnm.args$x,
                                           ebnm.args$s,

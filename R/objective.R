@@ -14,6 +14,8 @@ calc.obj <- function(flash, factor = NULL) {
     sum.tau.R2 <- get.sum.tau.R2(flash)
   }
 
+
+ # browser()
   if (is.tau.simple(flash)) {
     n.nonmissing <- get.n.nonmissing(flash)
     obj <- KL - 0.5 * sum(n.nonmissing * (log(2 * pi)

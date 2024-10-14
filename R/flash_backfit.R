@@ -154,7 +154,7 @@ flash_backfit <- function(flash,
       available_cols[available_cols == max_col] <- NA
     }
 
-
+browser()
 
     print(kset)
 

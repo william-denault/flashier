@@ -7,7 +7,7 @@ fit_with_perm <- wdflashier:: flash_init(gtex
   flash_set_verbose(0) %>%
 
   flash_add_intercept(rowwise = FALSE) %>%
-   flash_factors_init(svd(gtex, nu = 5, nv = 5)) %>%
+   flash_factors_init(svd(gtex )) %>%
   flash_greedy(
      Kmax=7,
     ebnm_fn = c( ebnm_ash, ebnm_ash)
@@ -21,7 +21,7 @@ fit_without_perm <- flashier:: flash_init(gtex
   flash_set_verbose(0) %>%
 
   flash_add_intercept(rowwise = FALSE) %>%
- flash_factors_init(svd(gtex, nu = 5, nv = 5)) %>%
+ flash_factors_init(svd(gtex )) %>%
   flash_greedy(
      Kmax=7,
     ebnm_fn = c( ebnm_ash, ebnm_ash)
